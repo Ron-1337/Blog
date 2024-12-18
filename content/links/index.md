@@ -10,3 +10,9 @@ categories: ["page"]
 ---
 
 ## 一些友链捏
+
+[Phrinky](https://rkk.moe/)
+
+[Keqing](https://keqing.moe/)
+
+[GamerNoTitle](https://bili33.top/)

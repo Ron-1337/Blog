@@ -2,8 +2,8 @@
 title: "ADCTF2024"
 date: 2024-12-02
 draft: false
-description: "A&D工作室2024招新赛"
-summary: "A&D工作室2024招新赛 个人WriteUP"
+description: "AD工作室2024招新赛"
+summary: "AD工作室2024招新赛 个人WriteUP"
 tags: ["writeup", "ctf"]
 categories: ["writeup"]
 ---

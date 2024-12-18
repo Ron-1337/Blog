@@ -24,6 +24,7 @@
 
 [[main]]
   name = "分类"
+  pre = "bars"
   pageRef = "categories"
   weight = 50
 
