@@ -9,10 +9,6 @@ tags: ["link"]
 categories: ["page"]
 ---
 
-## CTF Tools
-
-{{< icon "link" >}}[CyberChef](https://gchq.github.io/CyberChef/)
-
 ## Members in AD Lab
 
 {{< icon "link" >}}[Phrinky](https://rkk.moe/)
@@ -28,3 +24,7 @@ categories: ["page"]
 {{< icon "link" >}}[Ak1M1O](http://ak1yamam10.cn/)
 
 {{< icon "link" >}}[Fallrain](https://4ra1n.blogspot.com/)
+
+## CTF Tools
+
+{{< icon "link" >}}[CyberChef](https://gchq.github.io/CyberChef/)
