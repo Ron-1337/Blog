@@ -11,14 +11,40 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-  name = "ABOUT"
-  pageRef = "about"
-  weight = 20
+  name = "HOME"
+  pre = "star"
+  url = "https://www.zzpeng.com"
+  weight = 10
 
 [[main]]
   name = "Blog"
+  pre = "list"
   pageRef = "posts"
-  weight = 10
+  weight = 20
+
+[[main]]
+  name = "Categories"
+  pre = "bars"
+  pageRef = "categories"
+  weight = 50
+
+[[main]]
+  name = "Tags"
+  pre = "tag"
+  pageRef = "tags"
+  weight = 60
+
+[[main]]
+  name = "LINKS"
+  pre = "link"
+  pageRef = "links"
+  weight = 70
+
+[[main]]
+  name = "ABOUT"
+  pre = "circle-info"
+  pageRef = "about"
+  weight = 90
 
 #[[main]]
 #  name = "Parent"
@@ -46,16 +72,6 @@
 #  pre = "github"
 #  pageRef = "categories/awesome"
 #  weight = 20
-
-[[main]]
-  name = "Categories"
-  pageRef = "categories"
-  weight = 20
-
-[[main]]
-  name = "Tags"
-  pageRef = "tags"
-  weight = 30
 
 
 # -- Footer Menu --

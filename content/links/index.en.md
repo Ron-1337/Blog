@@ -4,16 +4,16 @@ date: 2024-12-17
 showDate: false
 showAuthor: false
 draft: false
-description: "链接"
+description: "links"
 tags: ["link"]
 categories: ["page"]
 ---
 
-## CTF 工具
+## CTF Tools
 
 {{< icon "link" >}}[CyberChef](https://gchq.github.io/CyberChef/)
 
-## 一些友链捏
+## Some of my friends
 
 {{< icon "link" >}}[Phrinky](https://rkk.moe/)
 

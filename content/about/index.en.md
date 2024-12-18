@@ -9,8 +9,8 @@ tags: ["about"]
 categories: ["page"]
 ---
 
-## 关于我是谁?
+## WHO AM I?
 
-- 2024级广东工业大学本科在读
-- A&D工作室成员
+- Student at Guangdong University of Technology
+- A&D Studio Members
 - ......
