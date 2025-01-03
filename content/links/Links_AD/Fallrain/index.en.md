@@ -2,7 +2,7 @@
 title: "Fallrain"
 tags: [AD Member]
 externalUrl: "https://4ra1n.blogspot.com/"
-featureimage: "https://www.blogger.com/img/avatar_blue_m_96.png"
+# featureimage: ""
 summary: ""
 weight: 5
 showDate: false

@@ -2,7 +2,7 @@
 title: "LSJPG"
 tags: [AD成员]
 externalUrl: "https://lsjgp.github.io/"
-featureimage: ""
+# featureimage: "/img/featured/1.svg"
 summary: "LSJGP的垃圾堆"
 weight: 10
 showDate: false

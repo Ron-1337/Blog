@@ -6,6 +6,7 @@ description: "AD Studio 2024 Recruitment Competition"
 summary: "Personal WriteUP of AD Studio 2024 Recruitment Competition"
 tags: ["writeup", "ctf"]
 categories: ["writeup"]
+type: "posts"
 ---
 
 {{< alert >}}
