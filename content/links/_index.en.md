@@ -18,7 +18,7 @@ Links to some of my friends' Blog or Home Page
 
 {{< alert >}}
 
-**Join Friend Links?** To add your site to this list, [Contact Me](https://t.me/ZZPeng).
+To add your site to this list, [Contact Me](https://t.me/ZZPeng).
 
 {{</ alert >}}
 

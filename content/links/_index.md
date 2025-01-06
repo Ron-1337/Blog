@@ -18,7 +18,7 @@ cardView: true
 
 {{< alert >}}
 
-**想加入友链?** 要交换友链, [请联系我](https://t.me/ZZPeng).
+要交换友链, [请联系我](https://t.me/ZZPeng).
 
 {{</ alert >}}
 
