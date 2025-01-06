@@ -12,15 +12,15 @@ categories: ["writeup"]
 
 ### CachedVisitor
 
-[题目附件](/posts/ccsssc2025/attachments/fishingemail_25da885af63965bf249067b64099c319attachment_20250102090654845.zip)
+[题目附件](/attachments/ccsssc2025/fishingemail_25da885af63965bf249067b64099c319attachment_20250102090654845.zip)
 
 部分有用的测试：
 
-![可出网证明](/posts/ccsssc2025/img/CachedVisitor-1.png)
+![可出网证明](/img/posts/ccsssc2025/CachedVisitor-1.png)
 
-![文件读取证明](/posts/ccsssc2025/img/CachedVisitor-2.png)
+![文件读取证明](/img/posts/ccsssc2025/CachedVisitor-2.png)
 
-![dict协议可用证明](/posts/ccsssc2025/img/CachedVisitor-3.png)
+![dict协议可用证明](/img/posts/ccsssc2025/CachedVisitor-3.png)
 
 容器出网且可读取文件
 
@@ -66,7 +66,7 @@ dict://127.0.0.1:6379/bgsave
 
 > Bob收到了一份钓鱼邮件，请找出木马的回连地址和端口。 假如回连地址和端口为123.213.123.123:1234，那么敏感信息为MD5(123.213.123.123:1234)，即d9bdd0390849615555d1f75fa854b14f，以Cyberchef的结果为准。
 
-[题目附件](/posts/ccsssc2025/attachments/CachedVisitor.zip)
+[题目附件](/attachments/ccsssc2025/CachedVisitor.zip)
 
 ```yaml
 Content-Transfer-Encoding: base64
@@ -94,7 +94,7 @@ Date: Mon, 11 Nov 2024 12:54:24 +0800
 
 在虚拟机中运行后抓包得到反连地址
 
-![抓包结果](/posts/ccsssc2025/img/Fishing_E-mail.png)
+![抓包结果](/img/posts/ccsssc2025/Fishing_E-mail.png)
 
 > MD5(222.218.218.218:55555)
 >

@@ -16,15 +16,15 @@ categories: ["writeup"]
 
 ### CachedVisitor
 
-[Attachment](/posts/ccsssc2025/attachments/fishingemail_25da885af63965bf249067b64099c319attachment_20250102090654845.zip)
+[Attachment](/attachments/ccsssc2025/fishingemail_25da885af63965bf249067b64099c319attachment_20250102090654845.zip)
 
 Some useful tests:
 
-![Proof of Internet Access](/posts/ccsssc2025/img/CachedVisitor-1.png)
+![Proof of Internet Access](/img/posts/ccsssc2025/CachedVisitor-1.png)
 
-![Proof of Any File Reading](/posts/ccsssc2025/img/CachedVisitor-2.png)
+![Proof of Any File Reading](/img/posts/ccsssc2025/CachedVisitor-2.png)
 
-![Proof of dict protocol availability](/posts/ccsssc2025/img/CachedVisitor-3.png)
+![Proof of dict protocol availability](/img/posts/ccsssc2025/CachedVisitor-3.png)
 
 Container is connected to the network and can read files. The dict protocol is available and redis can be accessed
 
@@ -68,7 +68,7 @@ After writing, you can execute what we wrote by sending a request at will Script
 
 > Bob received a phishing email. Please find the return address and port of the Trojan.If the backlink address and port are 123.213.123.123:1234, then the sensitive information is MD5 (123.213.123.123:1234), that is, d9bdd0390849615555d1f75fa854b14f, which is based on the result of Cyberchef.
 
-[Attachment](/posts/ccsssc2025/attachments/CachedVisitor.zip)
+[Attachment](/attachments/ccsssc2025/CachedVisitor.zip)
 
 ```yaml
 Content-Transfer-Encoding: base64
@@ -96,7 +96,7 @@ Successfully decompressed to get exe
 
 After running in the virtual machine, capture the packet to get the reverse connection address!
 
-![Capture result](/posts/ccsssc2025/img/Fishing_E-mail.png)
+![Capture result](/img/posts/ccsssc2025/Fishing_E-mail.png)
 
 > MD5(222.218.218.218:55555)
 >
