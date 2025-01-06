@@ -66,7 +66,7 @@ dict://127.0.0.1:6379/bgsave
 
 > Bob收到了一份钓鱼邮件，请找出木马的回连地址和端口。 假如回连地址和端口为123.213.123.123:1234，那么敏感信息为MD5(123.213.123.123:1234)，即d9bdd0390849615555d1f75fa854b14f，以Cyberchef的结果为准。
 
-[题目附件](/attachments/ccsssc2025/CachedVisitor.zip)
+[题目附件](/attachments/ccsssc2025/cachedvisitor_9c546db896fcd97d4c84f7fcf99357a3attachment_20250102085620033.zip)
 
 ```yaml
 Content-Transfer-Encoding: base64
